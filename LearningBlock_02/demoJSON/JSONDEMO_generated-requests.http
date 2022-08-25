@@ -1,0 +1,15 @@
+###
+GET http://localhost:8080/jsondemo
+
+###
+POST http://localhost:8080/jsondemo/create
+Content-Type: application/json
+
+{
+  "name": "Mickey Mouse",
+  "email": "mickeym@somewhere.com",
+  "dob": "1928-11-18"
+}
+
+###
+GET http://localhost:8080/jsondemo/problem

@@ -1,0 +1,47 @@
+###
+GET http://localhost:8080/book
+
+###
+GET http://localhost:8080/book/all
+
+###
+POST http://localhost:8080/book/create
+
+A new book
+
+###
+POST http://localhost:8080/book/create
+
+A new book
+
+###
+POST http://localhost:8080/book/create
+
+Another book
+
+###
+GET http://localhost:8080/book/all
+
+###
+GET http://localhost:8080/book/1
+
+###
+GET http://localhost:8080/book/3
+
+###
+POST http://localhost:8080/book/update
+Content-Type: application/json
+
+{
+    "id": 1,
+    "title": "Book 1 updated"
+}
+
+###
+GET http://localhost:8080/book/1
+
+###
+DELETE http://localhost:8080/book/delete/3
+
+###
+GET http://localhost:8080/book/all

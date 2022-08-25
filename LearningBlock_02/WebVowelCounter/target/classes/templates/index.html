@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vowel count</title>
+</head>
+<body>
+    <h1>Vowel count</h1>
+    <form action="#" th:action="@{/web/vowelCount}" th:object="${sentence}" method="post">
+        <p>Type a sentence:
+            <input type="text" th:field="*{text}" />
+        </p>
+        <p><input type="submit" value="Count vowels" /></p>
+    </form>
+</body>
+</html>
