@@ -1,0 +1,9 @@
+###
+POST http://localhost:8080/rest/vowelCount
+
+Hello
+
+###
+POST http://localhost:8080/rest/vowelCount
+
+The cat sat on the mat

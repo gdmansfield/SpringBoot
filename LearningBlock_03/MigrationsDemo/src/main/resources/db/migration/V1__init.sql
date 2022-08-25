@@ -1,0 +1,7 @@
+CREATE TABLE Person
+(
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(20) NOT NULL
+);
+
+INSERT INTO Person(name) VALUES('Graham'), ('Phil');
