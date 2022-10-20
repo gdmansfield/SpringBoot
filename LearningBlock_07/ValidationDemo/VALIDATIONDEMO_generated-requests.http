@@ -1,0 +1,35 @@
+###
+GET http://localhost:8080/book
+
+###
+GET http://localhost:8080/book/1
+
+###
+GET http://localhost:8080/book/2
+
+###
+GET http://localhost:8080/book/10
+
+###
+POST http://localhost:8080/copy/4/borrow
+
+###
+POST http://localhost:8080/copy/4/return
+
+###
+GET http://localhost:8080/loan/current
+
+###
+POST http://localhost:8080/book/create
+Content-Type: application/json
+
+{
+  "id": -1,
+  "title": "",
+  "author": "",
+  "isbn": "",
+  "numberOfCopies": -1
+}
+
+###
+GET http://localhost:8080/book/-3
