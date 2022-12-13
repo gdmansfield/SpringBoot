@@ -1,0 +1,172 @@
+###
+POST http://localhost:8080/owner/checkCredentials
+Content-Type: application/json
+
+{
+  "email" : "po3@po.com",
+  "password" : "pet_owner_3"
+}
+
+###
+POST http://localhost:8080/staff/checkCredentials
+Content-Type: application/json
+
+{
+  "email" : "staff1@staff.com",
+  "password" : "staff_1"
+}
+
+### from owner
+GET http://localhost:8080/owner/get/all
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from staff
+GET http://localhost:8080/owner/get/all
+Authorization: -295789b05fdd1726ee2f2cb33c9ea837
+
+### from wrong owner
+GET http://localhost:8080/owner/get/1
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from right owner
+GET http://localhost:8080/owner/get/3
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from staff
+GET http://localhost:8080/owner/get/3
+Authorization: -295789b05fdd1726ee2f2cb33c9ea837
+
+### from wrong owner
+PUT http://localhost:8080/owner/update/1/address
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+Content-Type: application/text
+
+3a, Horizon Road, Vile Village, TT12 6PD
+
+### from right owner
+PUT http://localhost:8080/owner/update/3/address
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+Content-Type: application/text
+
+26, The Avenue, Orchard on Sea, BB4 3XT
+
+### from owner
+GET http://localhost:8080/pet/get/4
+Authorization: -4ebb51a9cb9903609250b81c831669ca
+
+### from staff
+GET http://localhost:8080/pet/get/4
+Authorization: -295789b05fdd1726ee2f2cb33c9ea837
+
+### from wrong owner
+POST http://localhost:8080/pet/add/1
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Snuffler",
+  "dateOfBirth": "2022-10-03",
+  "typeOfAnimal": "Dog",
+  "ownerId": 1
+}
+
+### from right owner, wrong pet owner id
+POST http://localhost:8080/pet/add/3
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Snuffler",
+  "dateOfBirth": "2022-10-03",
+  "typeOfAnimal": "Dog",
+  "ownerId": 1
+}
+
+### from right owner, right pet owner id
+POST http://localhost:8080/pet/add/3
+Authorization: -4ebb51a9cb9903609250b81c831669ca
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Snuffler",
+  "dateOfBirth": "2022-10-03",
+  "typeOfAnimal": "Dog",
+  "ownerId": 3
+}
+
+###
+POST http://localhost:8080/owner/create
+Content-Type: application/json
+
+{
+  "address": "43, High Road, Meadow-under-Hill, F12 6GX",
+  "email": "po4@tt.com",
+  "name": "Pet owner 4",
+  "telephone": "+44 2222 444444",
+  "password": "pet_owner_4"
+}
+
+###
+POST http://localhost:8080/owner/create
+Content-Type: application/json
+
+{
+  "address": "3a, Horizon Road, Vile Village, TT12 6PD",
+  "email": "po5@tt.com",
+  "name": "Pet owner 5",
+  "telephone": "+44 3333 555555",
+  "password": "pet_owner_5"
+}
+
+### from owner
+DELETE http://localhost:8080/owner/delete/4
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from staff
+DELETE http://localhost:8080/owner/delete/4
+Authorization: 46220a820c7da7e3a0b82693677e9961
+
+### from staff
+DELETE http://localhost:8080/owner/delete/5
+Authorization: 46220a820c7da7e3a0b82693677e9961
+
+###
+POST http://localhost:8080/owner/checkCredentials
+Content-Type: application/json
+
+{
+  "email" : "po3@po.com",
+  "password" : "wrong_password"
+}
+
+###
+POST http://localhost:8080/owner/checkCredentials
+Content-Type: application/json
+
+{
+  "email" : "wrong_email@po.com",
+  "password" : "pet_owner_3"
+}
+
+### from wrong owner
+POST http://localhost:8080/owner/logout/1
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from right owner
+POST http://localhost:8080/owner/logout/3
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from staff
+POST http://localhost:8080/owner/logout/3
+Authorization: 46220a820c7da7e3a0b82693677e9961
+
+### from owner
+POST http://localhost:8080/staff/logout/1
+Authorization: 452419bdaf7795cc9fcb3fb27b54ae7b
+
+### from staff
+POST http://localhost:8080/staff/logout/1
+Authorization: 46220a820c7da7e3a0b82693677e9961
